@@ -1,0 +1,33 @@
+<div class="app-side-bar">
+    <mat-sidenav-container>
+      <mat-sidenav #snav id="snav" mode="side" opened="true" class="sidenav">
+        <mat-nav-list appAccordion>
+          <mat-list-item>
+            <a [routerLink]=" ['./'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              Home
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a [routerLink]=" ['./createteam'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              Teams </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a [routerLink]=" ['./register-tournament'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              Register </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a [routerLink]=" ['./ranking'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              Ranking </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a [routerLink]=" ['./about'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              About </a>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-sidenav>
+    </mat-sidenav-container>
+    <!-- <button (click)="snav.toggle()" value="sidebarclosed">
+      Menu
+    </button> -->
+  </div>
+  

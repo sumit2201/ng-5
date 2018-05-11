@@ -1,0 +1,18 @@
+<div>
+  This is a list
+  <ul>
+    <li *ngFor="let item of items;let i= index">
+      <i>{{i}}</i>{{item.name}}
+    </li>
+    <li [hidden]="!isClicked">About to add {{newItem}}</li>
+  </ul>
+  <button [hidden]="isClicked" (click)="showInput()">
+    Add New
+  </button>
+  <div [hidden]="!isClicked">
+    <input [(ngModel)]="newItem">
+    <button (click)="updateList()">
+      Update
+    </button>
+  </div>
+</div>

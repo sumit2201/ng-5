@@ -1,0 +1,38 @@
+@import '../styles/_variables';
+html,
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.app-navigation-parent {
+  width: $SIDE_BAR_WIDTH;
+  height: 100%;
+  float: left;
+}
+
+.app-content-parent {
+  padding-left: $SIDE_BAR_MINUS_SHADOW_WIDTH;
+  .app-header-parent {
+    height: $HEADER_HEIGHT;
+    padding-top: $COMMON_CONTENT_PADDING;
+    background: $HEADER_BG_COLOR;
+    border-bottom: 1px solid $COMMON_BORDER_COLOR;
+  }
+  .app-footer-parent {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: $FOOTER_BG_COLOR;
+    width: calc(100% - #{$SIDE_BAR_MINUS_SHADOW_WIDTH});
+    margin-left: $SIDE_BAR_MINUS_SHADOW_WIDTH;
+    height: $FOOTER_HEIGHT;
+    border-top: 1px solid $COMMON_BORDER_COLOR;
+    padding-left: $COMMON_CONTENT_PADDING;
+  }
+}
+
+.app-scroll-parent {
+  overflow: auto;
+}

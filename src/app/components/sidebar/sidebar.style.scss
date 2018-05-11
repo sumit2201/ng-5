@@ -1,0 +1,18 @@
+@import '../../../styles/_variables';
+.app-side-bar {
+  height: 100%;
+  .mat-sidenav-container {
+    height: 100%;
+    .sidenav {
+      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .42), 0 4px 25px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+      width: $SIDE_BAR_MINUS_SHADOW_WIDTH;
+      .mat-list-item-content {
+        a {
+          margin: 10px 15px;
+          border-radius: 3px;
+          color: #3c4858;
+        }
+      }
+    }
+  }
+}
