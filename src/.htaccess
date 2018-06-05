@@ -1,5 +1,5 @@
  RewriteEngine on
-RewriteBase /learning/ng5/angular-starter-master/dist
+RewriteBase /learning/ng5/git-ng-5/phase-I/dist
         # Don't rewrite files or directories
         RewriteCond %{REQUEST_FILENAME} -f [OR]
         RewriteCond %{REQUEST_FILENAME} -d

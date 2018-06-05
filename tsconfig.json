@@ -15,9 +15,11 @@
       "dom",
       "es6"
     ],
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@angular/*": ["node_modules/@angular/*"]
+      "@angular/*": [
+        "node_modules/@angular/*"
+      ]
     },
     "typeRoots": [
       "node_modules/@types"
