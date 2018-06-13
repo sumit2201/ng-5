@@ -19,6 +19,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { NoContentComponent } from "./no-content";
 import { XLargeDirective } from "./home/x-large";
+import { Globals } from "../common/global";
 
 import { MatMenuModule, MatButtonModule, MatCardModule, MatSidenavModule, MatListModule } from "@angular/material";
 import "../styles/styles.scss";
@@ -74,7 +75,8 @@ type StoreType = {
    */
   providers: [
     environment.ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    Globals,
   ]
 })
 export class AppModule { }
