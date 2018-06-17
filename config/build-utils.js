@@ -5,14 +5,13 @@ const helpers = require('./helpers');
 
 const DEFAULT_METADATA = {
   title: 'Learn ng-5',
-  baseUrl: '/learning/ng5/angular-starter-master/dist/',
+  baseUrl: '/learning/ng5/git-ng-5/phase-I/dist/',
   isDevServer: helpers.isWebpackDevServer(),
   HMR: helpers.hasProcessFlag('hot'),
   AOT: process.env.BUILD_AOT || helpers.hasNpmFlag('aot'),
   E2E: !!process.env.BUILD_E2E,
   WATCH: helpers.hasProcessFlag('watch'),
   tsConfigPath: 'tsconfig.webpack.json',
-
   /**
    * This suffix is added to the environment.ts file, if not set the default environment file is loaded (development)
    * To disable environment files set this to null

@@ -197,6 +197,10 @@ module.exports = function (options) {
             to: 'assets'
           },
           {
+            from: 'src/config',
+            to: 'config',
+          },
+          {
             from: 'src/meta'
           },
           {
