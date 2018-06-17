@@ -4,7 +4,7 @@ import { Component, Input, OnChanges, SimpleChange, SimpleChanges } from "@angul
     selector: "my-form",
     templateUrl: "./forms.template.html",
 })
-export class FormsComponent implements OnChanges {
+export class FormsComponent  {
     public isClicked = false;
     public newItem = null;
     @Input() public schema: any = null;

@@ -20,11 +20,16 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { NoContentComponent } from "./no-content";
 import { XLargeDirective } from "./home/x-large";
 import { Globals } from "../common/global";
+import { LoggerService} from "../services/log-provider.service";
+import { WidgetProviderService} from "../services/widget-provider.service";
 
 import { MatMenuModule, MatButtonModule, MatCardModule, MatSidenavModule, MatListModule } from "@angular/material";
 import "../styles/styles.scss";
 import "../styles/headings.css";
 import { DynamicFormsModule } from "modules/forms/forms.modules";
+import { RichTableComponent } from './components/richTable/rich-table.component';
+import { FormLoaderComponent } from './components/formLoader/form-loader.component';
+import { WidgetLoaderComponent } from './components/widgetloader/widget-loader.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -42,6 +47,7 @@ type StoreType = {
  */
 @NgModule({
   bootstrap: [AppComponent],
+  entryComponents:[FormLoaderComponent,RichTableComponent],
   declarations: [
     AppComponent,
     AboutComponent,
@@ -51,6 +57,9 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     XLargeDirective,
+    FormLoaderComponent,
+    RichTableComponent,
+    WidgetLoaderComponent,
   ],
   /**
    * Import Angular's modules.
@@ -77,6 +86,8 @@ type StoreType = {
     environment.ENV_PROVIDERS,
     APP_PROVIDERS,
     Globals,
+    LoggerService,
+    WidgetProviderService,
   ]
 })
 export class AppModule { }
