@@ -6,6 +6,7 @@ export class Globals {
     public API_URLS = {
         SampleForm: "./config/sampleform.json",
         SampleWidgets: "./config/sampleWidgets.json",
+        TeamPageWidgets:"./config/team-profile.widgets.json",
     };
 }
 

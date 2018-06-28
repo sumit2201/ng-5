@@ -1,10 +1,13 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, ComponentFactoryResolver } from '@angular/core';
-import { RootScopeService } from './rootscope-provider.service';
-import { Globals, WidgetTypes } from '../common/global';
-import { RichTableComponent } from '../app/components/richTable/rich-table.component';
-import { FormLoaderComponent } from '../app/components/formLoader/form-loader.component';
+import { HttpClient } from "@angular/common/http";
+import { Injectable, ComponentFactoryResolver } from "@angular/core";
+import { RootScopeService } from "./rootscope-provider.service";
+import { Globals, WidgetTypes } from "../common/global";
+import { RichTableComponent } from "../app/components/richTable/rich-table.component";
+import { FormLoaderComponent } from "../app/components/formLoader/form-loader.component";
 
+export const WebPagesNameConst = {
+  TEAM: "team",
+};
 @Injectable()
 export class WidgetProviderService {
   public widgetList: any[];
@@ -12,8 +15,18 @@ export class WidgetProviderService {
     ComponentFactoryResolver) {
 
   }
-  public getWidgetList() {
-    return this.http.get(this.global.API_URLS.SampleWidgets);
+  public getWidgetList(page: string) {
+    let url = null;
+    switch (page) {
+      case WebPagesNameConst.TEAM:
+        url = this.global.API_URLS.TeamPageWidgets;
+        break;
+      default:
+        break;
+    }
+    if (!Validations.isNullOrUndefined(url)) {
+      return this.http.get(url);
+    }
   }
 
   public mapWidgetWithComponent(widgetDataObj) {
@@ -31,4 +44,22 @@ export class WidgetProviderService {
     }
     return componentFactory;
   }
+}
+
+export interface IWidgetInfo {
+  title: string;
+  dataProvider?: IActionInfo;
+};
+
+export interface IActionInfo {
+  type: string;
+  method: string;
+  url: string;
+  parameters: IActionParameter[];
+}
+
+export interface IActionParameter {
+  id: string;
+  title: string;
+  isMendatory: boolean;
 }
