@@ -1,3 +1,5 @@
-<app-widget-loader [widgets]="widgets" [parameters]="parameters" meta="meta">
-    
-</app-widget-loader>
+<div *ngIf="widgets">
+  <app-widget-loader [widgets]="widgets['sticky']" [parameters]="parameters" meta="meta">
+
+  </app-widget-loader>
+</div>

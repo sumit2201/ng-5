@@ -6,8 +6,11 @@ import {
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Globals } from "../../../common/global";
+import { Validations } from "../../../common/utility";
 import { switchMap } from "rxjs/operators";
-import { WidgetProviderService, IWidgetInfo } from "../../../services/widget-provider.service";
+import { WidgetProviderService } from "../../../services/widget-provider.service";
+import { Observable } from "rxjs/RX";
+import { IWidgetInfo } from '../../../common/interfaces';
 
 @Component({
     templateUrl: "./team-profile.template.html",
@@ -29,10 +32,10 @@ export class TeamProfileComponent implements OnInit {
         // );
         const widgetObserver = this.widgetProvider.getWidgetList("team");
         if (!Validations.isNullOrUndefined(widgetObserver)) {
-            widgetObserver.subscribe((res: { [key: string]: IWidgetInfo }) => {
-                this.widgets = res;
+            Observable.forkJoin(widgetObserver).subscribe((data: any[]) => {
+                this.widgets = data[0];
             }, () => {
-                // TODO error log
+                console.error("error occured");
             });
         }
         const val1 = this.route.snapshot.params["teamId"];

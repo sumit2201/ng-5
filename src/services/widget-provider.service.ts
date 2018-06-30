@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, ComponentFactoryResolver } from "@angular/core";
 import { RootScopeService } from "./rootscope-provider.service";
 import { Globals, WidgetTypes } from "../common/global";
+import { Validations } from "../common/utility";
 import { RichTableComponent } from "../app/components/richTable/rich-table.component";
 import { FormLoaderComponent } from "../app/components/formLoader/form-loader.component";
 
@@ -44,22 +45,4 @@ export class WidgetProviderService {
     }
     return componentFactory;
   }
-}
-
-export interface IWidgetInfo {
-  title: string;
-  dataProvider?: IActionInfo;
-};
-
-export interface IActionInfo {
-  type: string;
-  method: string;
-  url: string;
-  parameters: IActionParameter[];
-}
-
-export interface IActionParameter {
-  id: string;
-  title: string;
-  isMendatory: boolean;
 }

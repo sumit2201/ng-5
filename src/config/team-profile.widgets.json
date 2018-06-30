@@ -1,15 +1,15 @@
 {
-    "sticky":[{
-        "title": "Team Information",
-        "dataProvider":{
-            "type":"rest",
-            "method":"get",
-            "url":"",
-            "dev_url":"./config/getTeam",
-            "parameters":[{
-                "id":"teamId",
-                "isMendatory":true
-            }]
-        }
-    }]
+  "sticky": [{
+    "title": "Team Information",
+    "dataProvider": {
+      "type": "rest",
+      "method": "get",
+      "url": "",
+      "dev_url": "./config/sampleform.json",
+      "parameters": [{
+        "id": "teamId",
+        "isMendatory": true
+      }]
+    }
+  }]
 }

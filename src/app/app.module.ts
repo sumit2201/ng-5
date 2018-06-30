@@ -22,15 +22,15 @@ import { XLargeDirective } from "./home/x-large";
 import { Globals } from "../common/global";
 import { LoggerService } from "../services/log-provider.service";
 import { WidgetProviderService } from "../services/widget-provider.service";
-
+import { DataProviderService } from "../services/data-provider.service";
 import { MatMenuModule, MatButtonModule, MatCardModule, MatSidenavModule, MatListModule } from "@angular/material";
 import "../styles/styles.scss";
 import "../styles/headings.css";
 import { DynamicFormsModule } from "modules/forms/forms.modules";
-import { RichTableComponent } from './components/richTable/rich-table.component';
-import { FormLoaderComponent } from './components/formLoader/form-loader.component';
-import { WidgetLoaderComponent } from './components/widgetloader/widget-loader.component';
-import { TeamProfileComponent } from './components/teamProfile/team-profile.component';
+import { RichTableComponent } from "./components/richTable/rich-table.component";
+import { FormLoaderComponent } from "./components/formLoader/form-loader.component";
+import { WidgetLoaderComponent } from "./components/widgetloader/widget-loader.component";
+import { TeamProfileComponent } from "./components/teamProfile/team-profile.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -90,6 +90,7 @@ type StoreType = {
     Globals,
     LoggerService,
     WidgetProviderService,
+    DataProviderService,
   ]
 })
 export class AppModule { }

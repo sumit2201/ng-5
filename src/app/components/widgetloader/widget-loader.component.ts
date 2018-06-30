@@ -1,8 +1,9 @@
-import { Component, Input, ViewContainerRef, ViewChild } from "@angular/core";
+import { Component, Input, ViewContainerRef, ViewChild, SimpleChange } from "@angular/core";
 import { WidgetProviderService } from "../../../services/widget-provider.service";
 import { Globals, IWidgetItem } from "../../../common/global";
-import { LoggerService, LogTypes } from "../../../services/log-provider.service";
-import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
+import { LoggerService} from "../../../services/log-provider.service";
+import { OnInit, OnChanges, SimpleChanges } from "@angular/core/src/metadata/lifecycle_hooks";
+import { Validations } from "../../../common/utility";
 
 @Component({
   selector: "app-widget-loader",
@@ -16,16 +17,16 @@ export class WidgetLoaderComponent implements OnInit {
   private dynamicComponents: any;
   constructor(private widgetProvider: WidgetProviderService, private loggerService: LoggerService) {
   }
+
   public ngOnInit() {
-    this.loadComponents(this.widgets);
+    this.loadComponents();
   }
 
-  private loadComponents(data: any) {
-    this.dynamicComponents = data;
-    for (const dynamicCmpDetail of this.dynamicComponents) {
+  private loadComponents() {
+    for (const dynamicCmpDetail of this.widgets) {
       let componentFactory = this.widgetProvider.mapWidgetWithComponent(dynamicCmpDetail);
       let componentRef: any = this.container.createComponent(componentFactory);
-      componentRef.instance.data = dynamicCmpDetail;
+      componentRef.instance.widgetData = dynamicCmpDetail;
     }
   }
 }

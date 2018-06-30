@@ -1,10 +1,9 @@
 // globals.ts
 import { Injectable } from "@angular/core";
-
+import { LogTypes } from "../common/interfaces";
 @Injectable()
 export class LoggerService {
-
-    public logMessage(msg: string, type: string) {
+    public logMessage(msg: any, type: string) {
         switch (type) {
             case LogTypes.Error:
                 console.error(msg);
@@ -17,11 +16,4 @@ export class LoggerService {
                 break;
         }
     }
-
 }
-
-export const LogTypes = {
-    Error: "ERROR",
-    Info: "INFO",
-}
-
