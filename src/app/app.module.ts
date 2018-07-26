@@ -31,6 +31,7 @@ import { RichTableComponent } from "./components/richTable/rich-table.component"
 import { FormLoaderComponent } from "./components/formLoader/form-loader.component";
 import { WidgetLoaderComponent } from "./components/widgetloader/widget-loader.component";
 import { TeamProfileComponent } from "./components/teamProfile/team-profile.component";
+import { DataTransformationService } from "../services/data-transformation.service";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -91,6 +92,7 @@ type StoreType = {
     LoggerService,
     WidgetProviderService,
     DataProviderService,
+    DataTransformationService,
   ]
 })
 export class AppModule { }

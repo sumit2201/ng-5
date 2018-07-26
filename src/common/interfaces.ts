@@ -17,6 +17,8 @@ export interface IActionParameter {
     isMendatory: boolean;
 }
 
+export type IParameterValueFormat = { [key: string]: string };
+
 export const ActionTypes = {
     Rest: "rest",
     InlineData: "inlineData",
@@ -25,4 +27,4 @@ export const ActionTypes = {
 export const LogTypes = {
     Error: "ERROR",
     Info: "INFO",
-}
+};

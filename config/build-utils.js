@@ -5,7 +5,7 @@ const helpers = require('./helpers');
 
 const DEFAULT_METADATA = {
   title: 'Learn ng-5',
-  baseUrl: '/learning/ng5/git-ng-5/phase-I/dist/',
+  baseUrl: '/learning/ng5/git-ng-5/ng-5/dist/',
   isDevServer: helpers.isWebpackDevServer(),
   HMR: helpers.hasProcessFlag('hot'),
   AOT: process.env.BUILD_AOT || helpers.hasNpmFlag('aot'),
