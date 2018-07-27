@@ -27,21 +27,22 @@ export class WidgetLoaderComponent implements OnInit {
   private loadComponents() {
     for (const dynamicCmpDetail of this.widgets) {
       let componentFactory = this.widgetProvider.mapWidgetWithComponent(dynamicCmpDetail);
-      let componentRef: ComponentRef = this.container.createComponent(componentFactory);
-      this.loadData(componentRef, dynamicCmpDetail);
+      // let componentRef: any = this.container.createComponent(componentFactory);
+      this.loadData(componentFactory, dynamicCmpDetail);
       // componentRef.instance.widgetData = dynamicCmpDetail;
       // componentRef.parameters = this.parameters;
     }
   }
 
-  private loadData(componentRef: any, widgetInfo: IWidgetInfo) {
+  private loadData(componentFactory: any, widgetInfo: IWidgetInfo) {
     if (!Validations.isNullOrUndefined(widgetInfo)) {
       const data = this.dataProvider.getData(widgetInfo.dataProvider, this.parameters);
       if (!Validations.isNullOrUndefined(data)) {
         data.subscribe((res: any) => {
-          // let componentRef: any = this.container.createComponent(componentFactory);
+          // TODO: settting of instance data directly does not gurantee it reaches in ngOnInit of component all the time
+          let componentRef: any = this.container.createComponent(componentFactory);
           componentRef.instance.widgetData = res;
-          componentRef.changeDetectorRef.detectChanges()
+          // componentRef.changeDetectorRef.detectChanges();
         }, () => {
           this.logger.logMessage("error in fetching data in widget Loader component after load data call", LogTypes.Error);
         });
