@@ -1,5 +1,8 @@
 <div *ngIf="widgets">
-  <app-widget-loader [widgets]="widgets['sticky']" [parameters]="parameters" meta="meta">
-
-  </app-widget-loader>
+  <div *ngFor="let widget of widgets['sticky']" class="app-widget">
+    <app-widget-loader [widget]="widget" [parameters]="parameters" meta="meta"></app-widget-loader>
+  </div>
+  <div *ngFor="let widget of widgets['content']" class="app-widget">
+      <app-widget-loader [widget]="widget" [parameters]="parameters" meta="meta"></app-widget-loader>
+    </div>
 </div>

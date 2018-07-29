@@ -11,5 +11,33 @@
         "isMendatory": true
       }]
     }
-  }]
+  }],
+  "content": [
+    {
+    "title": "Upcoming Tournaments",
+    "dataProvider": {
+      "type": "rest",
+      "method": "get",
+      "url": "",
+      "dev_url": "./config/sampleform.json",
+      "parameters": [{
+        "id": "teamId",
+        "isMendatory": true
+      }]
+    }
+  },
+  {
+    "title": "Recent Tournament Results",
+    "dataProvider": {
+      "type": "rest",
+      "method": "get",
+      "url": "",
+      "dev_url": "./config/sampleform.json",
+      "parameters": [{
+        "id": "teamId",
+        "isMendatory": true
+      }]
+    }
+  }
+]
 }

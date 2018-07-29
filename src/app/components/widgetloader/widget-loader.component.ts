@@ -9,11 +9,11 @@ import { IWidgetInfo, LogTypes } from "../../../common/interfaces";
 
 @Component({
   selector: "app-widget-loader",
-  template: `<ng-template #dynamicWidgets></ng-template>`,
+  templateUrl: "./widget-loader.template.html",
 })
 export class WidgetLoaderComponent implements OnInit {
   @ViewChild("dynamicWidgets", { read: ViewContainerRef }) private container;
-  @Input() private widgets: IWidgetInfo[];
+  @Input() private widget: IWidgetInfo;
   @Input() private parameters;
   @Input() private metaInfo;
   private dynamicComponents: any;
@@ -25,13 +25,8 @@ export class WidgetLoaderComponent implements OnInit {
   }
 
   private loadComponents() {
-    for (const dynamicCmpDetail of this.widgets) {
-      let componentFactory = this.widgetProvider.mapWidgetWithComponent(dynamicCmpDetail);
-      // let componentRef: any = this.container.createComponent(componentFactory);
-      this.loadData(componentFactory, dynamicCmpDetail);
-      // componentRef.instance.widgetData = dynamicCmpDetail;
-      // componentRef.parameters = this.parameters;
-    }
+      let componentFactory = this.widgetProvider.mapWidgetWithComponent(this.widget);
+      this.loadData(componentFactory,  this.widget);
   }
 
   private loadData(componentFactory: any, widgetInfo: IWidgetInfo) {
