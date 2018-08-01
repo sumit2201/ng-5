@@ -16,10 +16,9 @@ export class DataTransformationService {
 
   public transformData(httpData: any) {
         const simpleObservable = new Observable((observer) => {
-        
             // observable execution
             observer.next(httpData);
-            observer.complete()
+            observer.complete();
         });
         return simpleObservable;
     }

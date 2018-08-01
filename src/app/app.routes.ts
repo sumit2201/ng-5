@@ -10,5 +10,11 @@ export const ROUTES: Routes = [
   { path: "about", component: AboutComponent },
   { path: "createteam", component: HomeComponent },
   { path: "teamprofile/:teamId", component: TeamProfileComponent },
+  { path: "register-tournament", component: AboutComponent, outlet: "genericFlow" },
   { path: "**", component: NoContentComponent },
+  {
+    path: "",
+    component: HomeComponent,
+    outlet: "genericFlow"
+ }
 ];
