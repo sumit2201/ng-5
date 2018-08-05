@@ -1,9 +1,10 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation, ElementRef } from "@angular/core";
 import { environment } from "environments/environment";
 import { AppState } from "./app.service";
+import * as $ from "jquery";
 
 /**
  * App Component
@@ -17,6 +18,7 @@ import { AppState } from "./app.service";
   ],
   templateUrl: "./app.template.html",
 })
+
 export class AppComponent implements OnInit {
   public name = "Angular Starter";
   public tipe = "assets/img/tipe.png";
@@ -25,11 +27,19 @@ export class AppComponent implements OnInit {
   public showDevModule: boolean = environment.showDevModule;
   public showPopup = true;
   constructor(
-    public appState: AppState
+    public appState: AppState, private appElement: ElementRef
   ) { }
 
   public ngOnInit() {
     console.log("Initial App State", this.appState.state);
+  }
+
+  public onActivate(){
+    $(this.appElement.nativeElement).find(".generic-workflow").show();
+  }
+
+  public onDeactivate() {
+    $(this.appElement.nativeElement).find(".generic-workflow").hide();
   }
 
 }

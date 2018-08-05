@@ -1,3 +1,7 @@
+<div class="generic-workflow">
+  <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)' name="genericFlow">
+  </router-outlet>
+</div>
 <div class="app-navigation-parent">
   <app-side-bar></app-side-bar>
 </div>
@@ -10,7 +14,4 @@
   </div>
   <div class="app-footer-parent">
     <app-footer></app-footer>
-  </div>
-  <div class="generic-workflow">
-    <router-outlet name="genericFlow"></router-outlet>
   </div>
