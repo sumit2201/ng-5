@@ -1,6 +1,9 @@
 <div class="generic-workflow">
-  <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)' name="genericFlow">
-  </router-outlet>
+  <div class="app-overlay"></div>
+  <div class="app-content-center">
+    <router-outlet (activate)='onActivate($event)' (deactivate)='onDeactivate($event)' name="genericFlow">
+    </router-outlet>
+  </div>
 </div>
 <div class="app-navigation-parent">
   <app-side-bar></app-side-bar>
