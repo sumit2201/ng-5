@@ -33,6 +33,8 @@ import { WidgetLoaderComponent } from "./components/widgetloader/widget-loader.c
 import { TeamProfileComponent } from "./components/teamProfile/team-profile.component";
 import { DataTransformationService } from "../services/data-transformation.service";
 
+import { Ng2SmartTableModule } from "ng2-smart-table";
+
 // Application wide providers
 const APP_PROVIDERS = [
   AppState
@@ -81,6 +83,7 @@ type StoreType = {
       preloadingStrategy: PreloadAllModules
     }),
     DynamicFormsModule,
+    Ng2SmartTableModule,
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

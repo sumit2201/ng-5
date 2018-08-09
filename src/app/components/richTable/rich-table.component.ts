@@ -19,9 +19,31 @@ import { LogTypes, IWidgetInfo } from "../../../common/interfaces";
 })
 export class RichTableComponent implements OnInit, OnChanges {
     @Input() private widgetData: IWidgetInfo;
+    private settings: any;
     constructor(
         public route: ActivatedRoute, private logger: LoggerService, private global: Globals
     ) {
+        this.loadSetttings();
+    }
+
+    public loadSetttings() {
+        const settings = {
+            columns: {
+                id: {
+                    title: "ID"
+                },
+                name: {
+                    title: "Full Name"
+                },
+                username: {
+                    title: "User Name"
+                },
+                email: {
+                    title: "Email"
+                }
+            }
+        };
+        return settings;
     }
 
     public ngOnInit() {
