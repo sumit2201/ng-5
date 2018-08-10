@@ -1,18 +1,19 @@
-class AppData {
+export class AppData {
     public table: TabularData;
 }
 
 class TabularData {
-    private rows: RowData[];
-    private columns: ColumnData[];
+    public rows: RowData[];
+    public columns: ColumnData[];
 }
 
 class RowData {
-
+    public value: any;
+    public actualValue: any;
+    public columnObj: ColumnData;
 }
 
 class ColumnData {
-    // TODO
     public id: string;
     public title: string;
     public dataType: string;
