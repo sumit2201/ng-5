@@ -13,7 +13,7 @@ import { LoggerService } from "../../../services/log-provider.service";
 import { DataProviderService } from "../../../services/data-provider.service";
 import { Validations } from "../../../common/utility";
 import { LogTypes } from "../../../common/interfaces";
-import { AppData } from "../../../common/app-data-format";
+import { AppData, RowData } from "../../../common/app-data-format";
 
 @Component({
     templateUrl: "./rich-table.template.html",
@@ -112,6 +112,43 @@ export class RichTableComponent implements OnInit, OnChanges {
             this.logger.logMessage("rows were not found in data", LogTypes.Error);
             this.logger.logMessage(data, LogTypes.Error);
         }
+    }
+
+    private prepareColumns(metaInfo: any, dataArr: any[]) {
+        const columns = [];
+        for (const columnId in metaInfo) {
+            if (metaInfo.hasOwnProperty(columnId)) {
+                columns.push(metaInfo[columnId]);
+            }
+        }
+        return columns;
+    }
+
+    private prepareRows(metaInfo: any, dataArr: any[]) {
+        const rows = [];
+        for (const dataObj of dataArr) {
+            const rowObj = [];
+            for (const columnId in metaInfo) {
+                if (metaInfo.hasOwnProperty(columnId)) {
+                    if (!Validations.isNullOrUndefined(dataObj[columnId])) {
+                        const rowData = {} as RowData;
+                        rowData.value = dataObj[columnId];
+                        rowData.actualValue = dataObj[columnId];
+                        rowData.columnObj = metaInfo[columnId];
+                        rowObj.push(rowData);
+                    }
+                }
+            }
+        }
+        return rows;
+    }
+
+    private transformData(dataArr: any[]) {
+        const appDataObj = new AppData();
+        const columns = this.prepareColumns({}, dataArr);
+        appDataObj.table.columns = columns;
+        const rows = this.prepareRows({}, dataArr);
+        appDataObj.table.rows = rows;
     }
 
 }
