@@ -10,7 +10,8 @@
         "id": "teamId",
         "isMendatory": true
       }]
-    }
+    },
+    "metaType":"team"
   }],
   "content": [
     {
@@ -24,7 +25,8 @@
         "id": "teamId",
         "isMendatory": true
       }]
-    }
+    },
+    "metaType":"tournament"
   },
   {
     "title": "Recent Tournament Results",

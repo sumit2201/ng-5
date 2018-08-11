@@ -21,6 +21,7 @@ import { NoContentComponent } from "./no-content";
 import { XLargeDirective } from "./home/x-large";
 import { Globals } from "../common/global";
 import { LoggerService } from "../services/log-provider.service";
+import { MetaProviderService } from "../services/meta-provider.service";
 import { WidgetProviderService } from "../services/widget-provider.service";
 import { DataProviderService } from "../services/data-provider.service";
 import { MatMenuModule, MatButtonModule, MatCardModule, MatSidenavModule, MatListModule } from "@angular/material";
@@ -93,6 +94,7 @@ type StoreType = {
     WidgetProviderService,
     DataProviderService,
     DataTransformationService,
+    MetaProviderService,
   ]
 })
 export class AppModule { }

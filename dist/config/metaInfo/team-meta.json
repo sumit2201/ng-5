@@ -1,0 +1,36 @@
+{
+    "teamId": {
+        "isVisible":false
+    },
+    "name":{
+        "actionInfo":{
+            "type": "url",
+            "parameters": [{
+                "id": "teamId",
+                "isMendatory": true
+              }]
+        }
+    },
+    "stateId": {
+        "isVisible":false
+    },
+    "state": {},
+    "sportId": {
+        "isVisible":false
+    },
+    "sport":{},
+    "agegroup": {},
+    "classification": {},
+    "coachId": {
+        "actionInfo":{
+            "type": "url",
+            "parameters": [{
+                "id": "ownerId",
+                "isMendatory": true
+              }]
+        }
+    },
+    "ownerId":{
+        "isVisible": false
+    }
+  }

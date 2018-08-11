@@ -1,0 +1,60 @@
+{
+    "tournamentId": {
+        "isVisible":false
+    },
+    "title":{
+        "actionInfo":{
+            "type": "url",
+            "parameters": [{
+                "id": "tournamentId",
+                "isMendatory": true
+              }]
+        }
+    },
+    "startDate": {
+        "type": "date"
+    },
+    "endDate": {
+        "type": "date"
+    },
+    "stateId": {
+        "isVisible":false
+    },
+    "state": {},
+    "sportId": {
+        "isVisible":false
+    },
+    "sport":{},
+    "agegroup": {},
+    "classification": {},
+    "director": {
+        "actionInfo":{
+            "type": "url",
+            "parameters": [{
+                "id": "ownerId",
+                "isMendatory": true
+              }]
+        }
+    },
+    "directorId":{
+        "isVisible": false
+    },
+    "actions":[
+        {
+            "type":"url",
+            "title":"Register",
+            "parameters": [{
+                "id": "tournamentId",
+                "isMendatory": true
+              }]
+        },
+        {
+            "type":"url",
+            "title":"Who is playing",
+            "parameters": [{
+                "id": "tournamentId",
+                "isMendatory": true
+              }]
+        }
+    ]
+  }

@@ -1,6 +1,7 @@
 export interface IWidgetInfo {
     title: string;
     dataProvider?: IActionInfo;
+    metaType?: string; // TODO: change string to pre-define type 
 }
 
 export interface IActionInfo {
@@ -28,3 +29,11 @@ export const LogTypes = {
     Error: "ERROR",
     Info: "INFO",
 };
+
+export type IMetaInfoFormat =  { [key: string]: IMetaInfo };
+
+export interface IMetaInfo {
+    isVisible?:boolean;
+    type: string; // data type values
+    actionInfo: IActionInfo[];
+}

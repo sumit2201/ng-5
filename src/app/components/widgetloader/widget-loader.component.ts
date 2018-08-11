@@ -31,15 +31,16 @@ export class WidgetLoaderComponent implements OnInit {
 
   private loadData(componentFactory: any, widgetInfo: IWidgetInfo) {
     if (!Validations.isNullOrUndefined(widgetInfo)) {
-      const data = this.dataProvider.getData(widgetInfo.dataProvider, this.parameters);
+      const data = this.dataProvider.getData(widgetInfo.dataProvider, this.parameters,widgetInfo.metaType);
       if (!Validations.isNullOrUndefined(data)) {
         data.subscribe((res: any) => {
           // TODO: settting of instance data directly does not gurantee it reaches in ngOnInit of component all the time
           let componentRef: any = this.container.createComponent(componentFactory);
           componentRef.instance.widgetData = res;
           // componentRef.changeDetectorRef.detectChanges();
-        }, () => {
+        }, (err: any) => {
           this.logger.logMessage("error in fetching data in widget Loader component after load data call", LogTypes.Error);
+          this.logger.logMessage(err, LogTypes.Error);
         });
       } else {
         this.logger.logMessage("no data found in widget Loader component after load data call", LogTypes.Error);
