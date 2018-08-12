@@ -16,11 +16,11 @@ export class DataProviderService {
 
   }
 
-  public getData(actionInfo: IActionInfo, parameters: IParameterValueFormat, metaType:string) {
+  public getData(actionInfo: IActionInfo, parameters: IParameterValueFormat, metaType: string) {
     let dataObserver: Observable<Object> = null;
     switch (actionInfo.type) {
       case ActionTypes.Rest:
-        dataObserver = this.getDataFromRestCall(actionInfo, parameters,metaType);
+        dataObserver = this.getDataFromRestCall(actionInfo, parameters, metaType);
         break;
       default:
         break;
@@ -28,12 +28,17 @@ export class DataProviderService {
     return dataObserver;
   }
 
-  private getDataFromRestCall(actionInfo: IActionInfo, parametersValues: IParameterValueFormat,metaType:string) {
+  private getDataFromRestCall(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType: string) {
     const requestParams = this.prepareRequestParams(actionInfo.parameters, parametersValues);
     return this.http.get(actionInfo.dev_url, {
       params: requestParams,
     }).pipe(
-      flatMap((httpData: any) => this.dataTransformer.transformData(httpData,metaType))
+      flatMap((httpData: any) => {
+        if (!Validations.isNullOrUndefined(httpData) && !Validations.isArray(httpData)) {
+            httpData = [httpData];
+        }
+        return this.dataTransformer.transformData(httpData, metaType);
+      })
     );
   }
 

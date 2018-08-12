@@ -1,0 +1,52 @@
+{
+    "columns": {
+        "teamId": {
+            "isVisible": false,
+            "title": "Team Id"
+        },
+        "name": {
+            "title": "Team",
+            "actionInfo": {
+                "type": "url",
+                "parameters": [
+                    {
+                        "id": "teamId",
+                        "isMendatory": true
+                    }
+                ]
+            }
+        },
+        "stateId": {
+            "isVisible": false
+        },
+        "state": {
+            "title": "State"
+        },
+        "sportId": {
+            "isVisible": false
+        },
+        "sport": {
+            "title": "Sport"
+        },
+        "agegroup": {
+            "title": "Agegroup"
+        },
+        "classification": {
+            "title": "Classification"
+        },
+        "coachId": {
+            "actionInfo": {
+                "type": "url",
+                "parameters": [
+                    {
+                        "id": "ownerId",
+                        "isMendatory": true
+                    }
+                ]
+            }
+        },
+        "ownerId": {
+            "isVisible": false
+        }
+    }
+}

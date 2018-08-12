@@ -5,7 +5,7 @@
       "type": "rest",
       "method": "get",
       "url": "",
-      "dev_url": "./config/sampleform.json",
+      "dev_url": "./config/sample-data.json",
       "parameters": [{
         "id": "teamId",
         "isMendatory": true
@@ -20,7 +20,7 @@
       "type": "rest",
       "method": "get",
       "url": "",
-      "dev_url": "./config/sampleform.json",
+      "dev_url": "./config/sample-data.json",
       "parameters": [{
         "id": "teamId",
         "isMendatory": true
@@ -34,7 +34,7 @@
       "type": "rest",
       "method": "get",
       "url": "",
-      "dev_url": "./config/sampleform.json",
+      "dev_url": "./config/sample-form.json",
       "parameters": [{
         "id": "teamId",
         "isMendatory": true

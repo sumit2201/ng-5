@@ -28,6 +28,7 @@ export const ActionTypes = {
 export const LogTypes = {
     Error: "ERROR",
     Info: "INFO",
+    Warn: "WARN",
 };
 
 export type IMetaInfoFormat =  { [key: string]: IMetaInfo };

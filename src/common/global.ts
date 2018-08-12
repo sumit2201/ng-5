@@ -4,8 +4,8 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class Globals {
     public API_URLS = {
-        SampleForm: "./config/sampleform.json",
-        SampleWidgets: "./config/sampleWidgets.json",
+        SampleForm: "./config/sample-form.json",
+        SampleData: "./config/sample-data.json",
         TeamPageWidgets:"./config/team-profile.widgets.json",
     };
 }

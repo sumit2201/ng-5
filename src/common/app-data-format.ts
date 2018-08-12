@@ -1,4 +1,4 @@
-export class AppData {
+export class AppDataParent {
     public table: TabularData;
     constructor() {
         this.table = new TabularData();
@@ -6,22 +6,25 @@ export class AppData {
 }
 
 class TabularData {
-    public rows: RowData[];
-    public columns: ColumnData[];
+    public rows: TableRowFormat[];
+    public columns: TableColumnFormat;
     constructor() {
         this.rows = [];
-        this.columns = [];
+        this.columns = {};
     }
 }
 
-export class RowData {
+export type TableRowFormat  = {[key:string]:TableRow};
+export type TableColumnFormat  = {[key:string]:TableColumn};
+
+export class TableRow {
     public value: any;
     public actualValue: any;
-    public columnObj: ColumnData;
+    public columnObj: TableColumn;
 }
 
-export class ColumnData {
-    public id: string;
+export class TableColumn {
+    public columnId: string;
     public title: string;
     public dataType: string;
     public isVisible: boolean;

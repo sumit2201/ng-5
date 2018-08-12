@@ -7,6 +7,7 @@ import { Validations } from "../../../common/utility";
 import { DataProviderService } from "../../../services/data-provider.service";
 import { IWidgetInfo, LogTypes } from "../../../common/interfaces";
 
+
 @Component({
   selector: "app-widget-loader",
   templateUrl: "./widget-loader.template.html",
