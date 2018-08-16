@@ -35,6 +35,7 @@ import { TeamProfileComponent } from "./components/teamProfile/team-profile.comp
 import { DataTransformationService } from "../services/data-transformation.service";
 
 import { Ng2SmartTableModule } from "ng2-smart-table";
+import { WidgetToggleComponent } from './components/widgetToggle/widget-toggle.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -65,6 +66,7 @@ type StoreType = {
     FormLoaderComponent,
     RichTableComponent,
     WidgetLoaderComponent,
+    WidgetToggleComponent,
     TeamProfileComponent,
   ],
   /**

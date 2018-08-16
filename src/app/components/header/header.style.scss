@@ -1,3 +1,9 @@
 .app-header-parent {
-   
+  .app-header-content-parent {
+    display: flex;
+    .right-section {
+      margin-left: auto;
+      padding-right: 10px;
+    }
   }
+}

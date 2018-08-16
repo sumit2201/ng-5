@@ -38,3 +38,9 @@ export interface IMetaInfo {
     type: string; // data type values
     actionInfo: IActionInfo[];
 }
+
+export interface IWidgetToggleSettings {
+    label: string;
+    imageUrl: string;
+    widgetInfo: IWidgetInfo;
+}

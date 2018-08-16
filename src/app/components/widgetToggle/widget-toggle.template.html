@@ -1,0 +1,7 @@
+<div *ngIf="settings">
+  <div *ngIf="settings.label">{{settings.label}}</div>
+</div>
+
+<div *ngIf="isActive && settings.widget">
+  <app-widget-loader [widget]="widget"></app-widget-loader>
+</div>

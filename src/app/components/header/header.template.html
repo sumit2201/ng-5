@@ -1,0 +1,8 @@
+<div class="app-header-content-parent">
+  <div>Header</div>
+  <div class="right-section">
+    <div *ngFor="let staticWidget of staticWidgets">
+      <app-widget-toggle [settings]="staticWidget"></app-widget-toggle>
+    </div>
+  </div>
+</div>
