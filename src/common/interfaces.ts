@@ -10,6 +10,7 @@ export interface IActionInfo {
     url: string;
     dev_url?: string;
     parameters: IActionParameter[];
+    data: any[];
 }
 
 export interface IActionParameter {
@@ -21,8 +22,8 @@ export interface IActionParameter {
 export type IParameterValueFormat = { [key: string]: string };
 
 export const ActionTypes = {
-    Rest: "rest",
-    InlineData: "inlineData",
+    Rest: "REST",
+    InlineData: "INLINE",
 };
 
 export const LogTypes = {

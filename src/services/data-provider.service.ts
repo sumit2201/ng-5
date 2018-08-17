@@ -18,14 +18,24 @@ export class DataProviderService {
 
   public getData(actionInfo: IActionInfo, parameters: IParameterValueFormat, metaType: string) {
     let dataObserver: Observable<Object> = null;
-    switch (actionInfo.type) {
+    switch (actionInfo.type.toUpperCase()) {
       case ActionTypes.Rest:
         dataObserver = this.getDataFromRestCall(actionInfo, parameters, metaType);
+        break;
+      case ActionTypes.InlineData:
+        dataObserver = this.getInlineData(actionInfo, parameters, metaType);
         break;
       default:
         break;
     }
     return dataObserver;
+  }
+
+  private getInlineData(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType: string) {
+    return new Observable((observer) => {
+      observer.next(actionInfo.data);
+      observer.complete();
+    });
   }
 
   private getDataFromRestCall(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType: string) {
@@ -35,7 +45,7 @@ export class DataProviderService {
     }).pipe(
       flatMap((httpData: any) => {
         if (!Validations.isNullOrUndefined(httpData) && !Validations.isArray(httpData)) {
-            httpData = [httpData];
+          httpData = [httpData];
         }
         return this.dataTransformer.transformData(httpData, metaType);
       })

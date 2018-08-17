@@ -1,1 +1,3 @@
-<my-form [schema]="schema" [model]="formData"></my-form>
+<div *ngIf="fields.length > 0">
+  <dynamic-form-builder [fields]="fields"></dynamic-form-builder>
+</div>

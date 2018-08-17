@@ -27,7 +27,7 @@ import { DataProviderService } from "../services/data-provider.service";
 import { MatMenuModule, MatButtonModule, MatCardModule, MatSidenavModule, MatListModule } from "@angular/material";
 import "../styles/styles.scss";
 import "../styles/headings.css";
-import { DynamicFormsModule } from "modules/forms/forms.modules";
+import { DynamicFormBuilderModule } from "../modules/form/dynamic-form-builder.module";
 import { RichTableComponent } from "./components/richTable/rich-table.component";
 import { FormLoaderComponent } from "./components/formLoader/form-loader.component";
 import { WidgetLoaderComponent } from "./components/widgetloader/widget-loader.component";
@@ -35,7 +35,7 @@ import { TeamProfileComponent } from "./components/teamProfile/team-profile.comp
 import { DataTransformationService } from "../services/data-transformation.service";
 
 import { Ng2SmartTableModule } from "ng2-smart-table";
-import { WidgetToggleComponent } from './components/widgetToggle/widget-toggle.component';
+import { WidgetToggleComponent } from "./components/widgetToggle/widget-toggle.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -85,7 +85,7 @@ type StoreType = {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
     }),
-    DynamicFormsModule,
+    DynamicFormBuilderModule,
     Ng2SmartTableModule,
   ],
   /**
