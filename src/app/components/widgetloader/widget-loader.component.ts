@@ -26,13 +26,13 @@ export class WidgetLoaderComponent implements OnInit {
   }
 
   private loadComponents() {
-      let componentFactory = this.widgetProvider.mapWidgetWithComponent(this.widget);
-      this.loadData(componentFactory,  this.widget);
+    let componentFactory = this.widgetProvider.mapWidgetWithComponent(this.widget);
+    this.loadData(componentFactory, this.widget);
   }
 
   private loadData(componentFactory: any, widgetInfo: IWidgetInfo) {
     if (!Validations.isNullOrUndefined(widgetInfo)) {
-      const data = this.dataProvider.getData(widgetInfo.dataProvider, this.parameters,widgetInfo.metaType);
+      const data = this.dataProvider.getData(widgetInfo.dataProvider, this.parameters, widgetInfo.metaType);
       if (!Validations.isNullOrUndefined(data)) {
         data.subscribe((res: any) => {
           // TODO: settting of instance data directly does not gurantee it reaches in ngOnInit of component all the time

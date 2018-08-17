@@ -1,36 +1,52 @@
 {
-    "teamId": {
-        "isVisible":false
-    },
-    "name":{
-        "actionInfo":{
-            "type": "url",
-            "parameters": [{
-                "id": "teamId",
-                "isMendatory": true
-              }]
+    "columns": {
+        "teamId": {
+            "isVisible": false,
+            "title": "Team Id"
+        },
+        "name": {
+            "title": "Team",
+            "actionInfo": {
+                "type": "url",
+                "parameters": [
+                    {
+                        "id": "teamId",
+                        "isMendatory": true
+                    }
+                ]
+            }
+        },
+        "stateId": {
+            "isVisible": false
+        },
+        "state": {
+            "title": "State"
+        },
+        "sportId": {
+            "isVisible": false
+        },
+        "sport": {
+            "title": "Sport"
+        },
+        "agegroup": {
+            "title": "Agegroup"
+        },
+        "classification": {
+            "title": "Classification"
+        },
+        "coachId": {
+            "actionInfo": {
+                "type": "url",
+                "parameters": [
+                    {
+                        "id": "ownerId",
+                        "isMendatory": true
+                    }
+                ]
+            }
+        },
+        "ownerId": {
+            "isVisible": false
         }
-    },
-    "stateId": {
-        "isVisible":false
-    },
-    "state": {},
-    "sportId": {
-        "isVisible":false
-    },
-    "sport":{},
-    "agegroup": {},
-    "classification": {},
-    "coachId": {
-        "actionInfo":{
-            "type": "url",
-            "parameters": [{
-                "id": "ownerId",
-                "isMendatory": true
-              }]
-        }
-    },
-    "ownerId":{
-        "isVisible": false
     }
-  }
+}

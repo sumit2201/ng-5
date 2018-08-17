@@ -7,7 +7,7 @@ STATICWIDGETS["LOGIN"] = {
     title: "Sign In",
     dataProvider: {
         type: "INLINE",
-        data: [{
+        data: {
             schema: {
                 title: "Sign In",
                 fields: {
@@ -21,6 +21,6 @@ STATICWIDGETS["LOGIN"] = {
                     }
                 }
             }
-        }]
+        }
     }
 };

@@ -29,3 +29,8 @@ export class TableColumn {
     public dataType: string;
     public isVisible: boolean;
 }
+
+export class AppFormData {
+    public schema: any;
+    public formData: any;
+}
