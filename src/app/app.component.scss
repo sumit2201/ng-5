@@ -79,3 +79,7 @@ body {
   background: $APP_OVERLAY_BACKGROUND;
   opacity: $APP_OVERLAY_BACKGROUND_OPACITY;
 }
+
+.app-toggle-place{
+  position: fixed;
+}

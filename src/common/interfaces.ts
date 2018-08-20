@@ -45,3 +45,8 @@ export interface IWidgetToggleSettings {
     imageUrl: string;
     widgetInfo: IWidgetInfo;
 }
+
+export interface IElementPosition {
+    x: number;
+    y: number;
+}
