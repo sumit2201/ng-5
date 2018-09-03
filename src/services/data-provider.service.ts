@@ -16,11 +16,11 @@ export class DataProviderService {
 
   }
 
-  public getData(actionInfo: IActionInfo, parameters: IParameterValueFormat, metaType: string) {
+  public performAction(actionInfo: IActionInfo, parameters: IParameterValueFormat, metaType?: string) {
     let dataObserver: Observable<Object> = null;
     switch (actionInfo.type.toUpperCase()) {
       case ActionTypes.Rest:
-        dataObserver = this.getDataFromRestCall(actionInfo, parameters, metaType);
+        dataObserver = this.performRestOperation(actionInfo, parameters, metaType);
         break;
       case ActionTypes.InlineData:
         dataObserver = this.getInlineData(actionInfo, parameters, metaType);
@@ -38,9 +38,37 @@ export class DataProviderService {
     });
   }
 
+  private performRestOperation(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType?: string) {
+    let dataObserver: Observable<Object> = null;
+    switch (actionInfo.method) {
+      case "get":
+        dataObserver = this.getDataFromRestCall(actionInfo, parametersValues, metaType);
+        break;
+      case "post":
+        break;
+      default:
+        break;
+    }
+    return dataObserver;
+  }
+
   private getDataFromRestCall(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType: string) {
     const requestParams = this.prepareRequestParams(actionInfo.parameters, parametersValues);
     return this.http.get(actionInfo.dev_url, {
+      params: requestParams,
+    }).pipe(
+      flatMap((httpData: any) => {
+        if (!Validations.isNullOrUndefined(httpData) && !Validations.isArray(httpData)) {
+          httpData = [httpData];
+        }
+        return this.dataTransformer.transformData(httpData, metaType);
+      })
+    );
+  }
+
+  private postDataFromRestCall(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType: string) {
+    const requestParams = this.prepareRequestParams(actionInfo.parameters, parametersValues);
+    return this.http.post(actionInfo.dev_url, {
       params: requestParams,
     }).pipe(
       flatMap((httpData: any) => {

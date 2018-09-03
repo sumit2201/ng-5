@@ -1,4 +1,5 @@
 import { IElementPosition } from "./interfaces";
+import * as $ from "jquery";
 
 export class Validations {
     public static isNullOrUndefined(value: any) {

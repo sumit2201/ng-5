@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { IActionInfo } from "../../common/interfaces";
 
 @Component({
   selector: "dynamic-form-builder",
@@ -8,6 +9,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class DynamicFormBuilderComponent implements OnInit {
   @Output() private onSubmit = new EventEmitter();
   @Input() private fields: any[] = [];
+  @Input() private actions: IActionInfo[] = [];
   private form: FormGroup;
   constructor() {
     // TODO:

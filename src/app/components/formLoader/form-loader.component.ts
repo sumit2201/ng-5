@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 import { Globals } from "../../../common/global";
 import { Validations } from "../../../common/utility";
 import { AppFormData } from "../../../common/app-data-format";
+import { IActionInfo } from "../../../common/interfaces";
 
 @Component({
   templateUrl: "./form-loader.template.html",
@@ -15,14 +16,17 @@ import { AppFormData } from "../../../common/app-data-format";
 export class FormLoaderComponent implements OnInit {
   @Input() private widgetData: AppFormData;
   private fields: any[] = [];
+  private actions: IActionInfo[] = [];
   constructor(
     public route: ActivatedRoute, private http: HttpClient, private global: Globals
   ) {
   }
 
   public ngOnInit() {
+    this.resetFormDetails();
     this.setFormDetails();
     this.prepareFormFields();
+    this.prepareFormActions();
   }
 
   private resetFormDetails() {
@@ -42,7 +46,6 @@ export class FormLoaderComponent implements OnInit {
   }
 
   private prepareFormFields() {
-    this.resetFormDetails();
     if (!Validations.isObjectEmpty(this.widgetData.schema) && !Validations.isObjectEmpty(this.widgetData.schema.fields)) {
       for (const fieldId in this.widgetData.schema.fields) {
         if (this.widgetData.schema.fields.hasOwnProperty(fieldId)) {
@@ -53,6 +56,14 @@ export class FormLoaderComponent implements OnInit {
           }
           this.fields.push(fieldObj);
         }
+      }
+    }
+  }
+
+  private prepareFormActions() {
+    if (!Validations.isObjectEmpty(this.widgetData.schema) && !Validations.isObjectEmpty(this.widgetData.schema.fields)) {
+      for (const action of this.widgetData.schema.actions) {
+        this.actions.push(action);
       }
     }
   }

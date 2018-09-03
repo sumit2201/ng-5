@@ -3,7 +3,7 @@ import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: "dropdown",
-  templateUrl: "./dropdown-template.html",
+  templateUrl: "./dropdown-input.template.html",
 })
 export class DropDownComponent {
   @Input() private field: any = {};

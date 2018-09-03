@@ -1,6 +1,7 @@
 import { OnInit, Input, Component, ElementRef } from "@angular/core";
 import { IWidgetInfo, IWidgetToggleSettings } from "../../../common/interfaces";
 import { UIHelper } from "../../../common/utility";
+import * as $ from "jquery";
 
 @Component({
     selector: "app-widget-toggle",
@@ -22,7 +23,7 @@ export class WidgetToggleComponent implements OnInit {
     public handleEventForToggle($event: MouseEvent, settings: IWidgetToggleSettings) {
         const targetElement = this.getTargetElementForToggle($event);
         const elementPosToOpen = UIHelper.getAbsoluteCoordsForElement(targetElement);
-        const elementToOpen = $(this.elementRef).find(".app-toggle-place") as any;
+        const elementToOpen = $(this.elementRef.nativeElement).find(".app-toggle-place");
         const positionToOpen = UIHelper.adjustPositionAsPerWindow(elementPosToOpen, elementToOpen);
         UIHelper.setPosition(positionToOpen, elementToOpen);
         this.isActive = true;

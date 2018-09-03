@@ -19,7 +19,24 @@ STATICWIDGETS["LOGIN"] = {
                         title: "User name",
                         type: "text"
                     }
-                }
+                },
+                actions: [{
+                    title: "Sign In",
+                    type: "rest",
+                    method: "post",
+                    url: "",
+                    dev_url: "./config/dummyServer/callhandler.php",
+                    parameters: [
+                        {
+                            id: "username",
+                            isMendatory: true
+                        },
+                        {
+                            id: "password",
+                            isMendatory: true
+                        }
+                    ]
+                }]
             }
         }
     }

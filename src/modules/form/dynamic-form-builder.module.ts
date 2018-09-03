@@ -10,11 +10,13 @@ import { DropDownComponent } from "./fields/dropDown/dropdown-input.component";
 import { FileComponent } from "./fields/file/file-input.component";
 import { CheckBoxComponent } from "./fields/checkbox/checkbox-input.component";
 import { RadioComponent } from "./fields/radio/radio-input.component";
+import { DataProviderService } from "../../services/data-provider.service";
+import { ActionButtonComponent } from "./fields/button/button-input.component";
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DynamicFormBuilderComponent,
@@ -23,9 +25,10 @@ import { RadioComponent } from "./fields/radio/radio-input.component";
     DropDownComponent,
     CheckBoxComponent,
     FileComponent,
-    RadioComponent
+    RadioComponent,
+    ActionButtonComponent,
   ],
   exports: [DynamicFormBuilderComponent],
-  providers: []
+  providers: [DataProviderService]
 })
 export class DynamicFormBuilderModule { }

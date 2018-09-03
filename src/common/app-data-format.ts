@@ -1,3 +1,5 @@
+import { IActionInfo } from './interfaces';
+
 export class AppDataParent {
     public table: TabularData;
     constructor() {
@@ -33,4 +35,5 @@ export class TableColumn {
 export class AppFormData {
     public schema: any;
     public formData: any;
+    public actions: IActionInfo[];
 }

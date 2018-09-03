@@ -4,7 +4,7 @@ import { FormGroup } from "@angular/forms";
 // text,email,tel,textarea,password, 
 @Component({
   selector: "file",
-  templateUrl: "./file.template.html",
+  templateUrl: "./file-input.template.html",
   styleUrls: ["./file-input.style.scss"],
 })
 export class FileComponent {
