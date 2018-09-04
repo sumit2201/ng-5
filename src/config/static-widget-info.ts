@@ -16,8 +16,8 @@ STATICWIDGETS["LOGIN"] = {
                         type: "text"
                     },
                     password: {
-                        title: "User name",
-                        type: "text"
+                        title: "Password",
+                        type: "password"
                     }
                 },
                 actions: [{

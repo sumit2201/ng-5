@@ -32,10 +32,10 @@ export const LogTypes = {
     Warn: "WARN",
 };
 
-export type IMetaInfoFormat =  { [key: string]: IMetaInfo };
+export type IMetaInfoFormat = { [key: string]: IMetaInfo };
 
 export interface IMetaInfo {
-    isVisible?:boolean;
+    isVisible?: boolean;
     type: string; // data type values
     actionInfo: IActionInfo[];
 }
@@ -49,4 +49,11 @@ export interface IWidgetToggleSettings {
 export interface IElementPosition {
     x: number;
     y: number;
+}
+
+export interface IFormField {
+    id: string;
+    type: string;
+    name: string;
+    value?: any;
 }

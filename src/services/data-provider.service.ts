@@ -1,11 +1,11 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { RootScopeService } from "./rootscope-provider.service";
 import { Globals, WidgetTypes } from "../common/global";
 import { Validations } from "../common/utility";
 import { IActionInfo, ActionTypes, IParameterValueFormat, IActionParameter, LogTypes } from "../common/interfaces";
 import { Observer, Observable } from "rxjs";
-import { tap, flatMap } from "rxjs/operators";
+import { tap, flatMap, catchError } from "rxjs/operators";
 import { DataTransformationService } from "./data-transformation.service";
 import { LoggerService } from "./log-provider.service";
 
@@ -45,6 +45,7 @@ export class DataProviderService {
         dataObserver = this.getDataFromRestCall(actionInfo, parametersValues, metaType);
         break;
       case "post":
+        this.postDataByRestCall(actionInfo, parametersValues, metaType);
         break;
       default:
         break;
@@ -66,18 +67,22 @@ export class DataProviderService {
     );
   }
 
-  private postDataFromRestCall(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType: string) {
+  private postDataByRestCall(actionInfo: IActionInfo, parametersValues: IParameterValueFormat, metaType: string) {
     const requestParams = this.prepareRequestParams(actionInfo.parameters, parametersValues);
-    return this.http.post(actionInfo.dev_url, {
-      params: requestParams,
-    }).pipe(
-      flatMap((httpData: any) => {
-        if (!Validations.isNullOrUndefined(httpData) && !Validations.isArray(httpData)) {
-          httpData = [httpData];
-        }
-        return this.dataTransformer.transformData(httpData, metaType);
-      })
-    );
+    return this.http.post(actionInfo.dev_url, JSON.stringify(requestParams)).subscribe((res) => {
+      console.error(res);
+    }, (err) => {
+      console.error(err);
+    });
+
+    // .pipe(
+    //   flatMap((httpData: any) => {
+    //     if (!Validations.isNullOrUndefined(httpData) && !Validations.isArray(httpData)) {
+    //       httpData = [httpData];
+    //     }
+    //     return this.dataTransformer.transformData(httpData, metaType);
+    //   })
+    // );
   }
 
   private prepareRequestParams(parameters: IActionParameter[], parametersValues: IParameterValueFormat) {

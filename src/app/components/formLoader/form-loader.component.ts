@@ -8,14 +8,14 @@ import { HttpClient } from "@angular/common/http";
 import { Globals } from "../../../common/global";
 import { Validations } from "../../../common/utility";
 import { AppFormData } from "../../../common/app-data-format";
-import { IActionInfo } from "../../../common/interfaces";
+import { IActionInfo, IFormField } from "../../../common/interfaces";
 
 @Component({
   templateUrl: "./form-loader.template.html",
 })
 export class FormLoaderComponent implements OnInit {
   @Input() private widgetData: AppFormData;
-  private fields: any[] = [];
+  private fields: IFormField[] = [];
   private actions: IActionInfo[] = [];
   constructor(
     public route: ActivatedRoute, private http: HttpClient, private global: Globals
@@ -27,6 +27,10 @@ export class FormLoaderComponent implements OnInit {
     this.setFormDetails();
     this.prepareFormFields();
     this.prepareFormActions();
+  }
+
+  public onSubmit(formData: any) {
+    console.error("form data is", formData);
   }
 
   private resetFormDetails() {
@@ -51,6 +55,7 @@ export class FormLoaderComponent implements OnInit {
         if (this.widgetData.schema.fields.hasOwnProperty(fieldId)) {
           const fieldObj = this.widgetData.schema.fields[fieldId];
           fieldObj.id = fieldId;
+          fieldObj.name = fieldId;
           if (!Validations.isNullOrUndefined(this.widgetData.formData[fieldId])) {
             fieldObj.value = this.widgetData.formData[fieldId];
           }
